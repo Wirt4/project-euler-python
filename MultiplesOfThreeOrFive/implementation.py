@@ -17,4 +17,6 @@ class Mulitples:
         for factor in factors:
             if not isinstance(factor, int) or factor < 0:
                 raise Exception("Factors must be non-negative integers")
+        if not isinstance(limit, int) or limit < 0:
+            raise Exception("Limit must be a positive integer")
         return 23
