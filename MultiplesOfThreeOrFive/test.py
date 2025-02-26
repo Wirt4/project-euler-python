@@ -38,7 +38,7 @@ class TestMultiples(unittest.TestCase):
 
     def test_answer_case(self):
         multiples = implementation.Multiples()
-        self.assertEqual(multiples.multiples([3, 5], 1000), -1)
+        self.assertEqual(multiples.multiples([3, 5], 1000), 233168)
 
 
 if __name__ == '__main__':
