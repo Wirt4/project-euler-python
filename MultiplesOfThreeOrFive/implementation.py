@@ -14,4 +14,7 @@ class Mulitples:
         """
         if not isinstance(factors, list):
             raise Exception("Factors must be a list of integers")
+        for factor in factors:
+            if not isinstance(factor, int):
+                raise Exception("Factors must be integers")
         return 23
