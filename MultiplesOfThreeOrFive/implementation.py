@@ -12,11 +12,31 @@ class Mulitples:
         postcondition:
         multiplse returns a number
         """
-        if not isinstance(factors, list):
-            raise Exception("Factors must be a list of integers")
-        for factor in factors:
-            if not isinstance(factor, int) or factor < 0:
-                raise Exception("Factors must be non-negative integers")
-        if not isinstance(limit, int) or limit < 0:
-            raise Exception("Limit must be a positive integer")
+        self._validtate_factors(factors)
+        self._validate_limit(limit)
         return 23
+    
+
+    def _validtate_factors(self, factors):
+        if not isinstance(factors, list) or not self._is_valid_integer_list(factors):
+            raise Exception("Factors must be a list of integers")
+    
+    def _is_valid_integer_list(self, factors):
+        for f in factors:
+            if not self._is_valid_integer(f):
+                return False
+        return True
+        
+    def _is_valid_integer(self, limit):
+        return isinstance(limit, int) and limit > 0
+    
+    def _validate_limit(self, limit):
+        if not self._is_valid_integer(limit):
+            raise LimitException()
+        
+    
+class LimitException(Exception):
+         """Base custom exception class"""
+         def __init__(self, message="Limit must be a positive integer"):
+            self.message = message
+            super().__init__(self.message)
