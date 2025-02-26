@@ -12,4 +12,6 @@ class Mulitples:
         postcondition:
         multiplse returns a number
         """
+        if not isinstance(factors, list):
+            raise Exception("Factors must be a list of integers")
         return 23
