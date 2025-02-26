@@ -1,23 +1,36 @@
 
-class Mulitples:
+class Multiples:
     def multiples(self, factors, limit):
         """
         This function returns the sum of all the multiples of the factors
-        in the range of 0 to the limit.
+        in the range of 1 to the limit. Natural numbers are the only valid
 
         precodntion:
-        factors is a list of positive integers
-        limit is a positive integer
+        factors is a list of natural numbers
+        limit is a natural number
+
+        We will not count 0 as a natural number
 
         postcondition:
-        multiplse returns a number
+        multiple returns a natural number
         """
-        self._validtate_factors(factors)
+        self._validate_factors(factors)
         self._validate_limit(limit)
-        return 23
+
+        n = set()
+
+        for f in factors:
+            i=0
+            while i < limit:
+                n.add(i)
+                i += f
+
+        s = sum(n)
+        self._validate_return(s)
+        return s
     
 
-    def _validtate_factors(self, factors):
+    def _validate_factors(self, factors):
         if not isinstance(factors, list) or not self._is_valid_integer_list(factors):
             raise FactorsException()
     
@@ -28,22 +41,32 @@ class Mulitples:
         return True
         
     def _is_valid_integer(self, limit):
-        return isinstance(limit, int) and limit > 0
+        if limit <=0:
+            return False
+        return isinstance(limit, int)
     
     def _validate_limit(self, limit):
         if not self._is_valid_integer(limit):
             raise LimitException()
         
-
+    def _validate_return(self, result):
+        if not self._is_valid_integer(result):
+            raise ReturnException()
 
 class FactorsException(Exception):
          """Base custom exception class"""  
-         def __init__(self, message="Factors must be a list of positive integers"):
+         def __init__(self, message="Factors must be a natural number"):
             self.message = message
             super().__init__(self.message)
 
 class LimitException(Exception):
          """Base custom exception class"""
-         def __init__(self, message="Limit must be a positive integer"):
+         def __init__(self, message="Limit must be a natural"):
+            self.message = message
+            super().__init__(self.message)
+
+class ReturnException(Exception):
+         """Base custom exception class"""  
+         def __init__(self, message="Return value must be a natural number"):
             self.message = message
             super().__init__(self.message)
