@@ -3,9 +3,13 @@ from . import implementation
 
 class TestMulitples(unittest.TestCase):
 
-    def test_exsmple_case(self):
+    def test_example_case(self):
         multiples = implementation.Mulitples()
         self.assertEqual(multiples.multiples([3, 5], 10), 23)
+
+    def test_small_extention(self):
+        multiples = implementation.Mulitples()
+        self.assertEqual(multiples.multiples([3, 5], 12), 33)
 
     def test_raises_exception_when_factors_is_not_a_list(self):
         multiples = implementation.Mulitples()
