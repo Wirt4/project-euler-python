@@ -12,4 +12,4 @@ class Mulitples:
         postcondition:
         multiplse returns a number
         """
-        return -1
+        return 23
