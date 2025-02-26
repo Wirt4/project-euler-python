@@ -19,7 +19,7 @@ class Mulitples:
 
     def _validtate_factors(self, factors):
         if not isinstance(factors, list) or not self._is_valid_integer_list(factors):
-            raise Exception("Factors must be a list of integers")
+            raise FactorsException()
     
     def _is_valid_integer_list(self, factors):
         for f in factors:
@@ -34,7 +34,14 @@ class Mulitples:
         if not self._is_valid_integer(limit):
             raise LimitException()
         
-    
+
+
+class FactorsException(Exception):
+         """Base custom exception class"""  
+         def __init__(self, message="Factors must be a list of positive integers"):
+            self.message = message
+            super().__init__(self.message)
+
 class LimitException(Exception):
          """Base custom exception class"""
          def __init__(self, message="Limit must be a positive integer"):
