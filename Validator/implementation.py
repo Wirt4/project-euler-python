@@ -8,4 +8,9 @@ class Validator:
         If the evaluation is False, the function will raise an exception with the message
         if the value of evaluation is True, the function will return None
         """
-        raise Exception("Not implemented")
+        raise PreconditionException(message)
+
+class PreconditionException(Exception):
+    def __init__(self, message="Precondition not met"):
+        self.message = message
+        super().__init__(self.message)
