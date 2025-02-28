@@ -8,4 +8,4 @@ class Validator:
         If the evaluation is False, the function will raise an exception with the message
         if the value of evaluation is True, the function will return None
         """
-        pass
+        raise Exception("Not implemented")
