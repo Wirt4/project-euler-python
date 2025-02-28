@@ -1,5 +1,11 @@
 
+from Validator.implementation import Validator
+
+
 class Multiples:
+    def __init__(self):
+        self.validator = Validator()
+        
     def multiples(self, factors, limit):
         """
         This function returns the sum of all the multiples of the factors
@@ -14,8 +20,8 @@ class Multiples:
         postcondition:
         multiple returns a natural number
         """
-        self._validate_factors(factors)
-        self._validate_limit(limit)
+        self.validator.precondition(isinstance(factors, list) and self._is_valid_integer_list(factors), "Factors must be a list of natural numbers")
+        self.validator.precondition(self._is_valid_integer(limit), "Limit must be a natural number")
 
         n = set()
 
@@ -26,13 +32,8 @@ class Multiples:
                 i += f
 
         s = sum(n)
-        self._validate_return(s)
+        self.validator.postcondition(self._is_valid_integer(s), "Sum must be a natural number")
         return s
-    
-
-    def _validate_factors(self, factors):
-        if not isinstance(factors, list) or not self._is_valid_integer_list(factors):
-            raise FactorsException()
     
     def _is_valid_integer_list(self, factors):
         for f in factors:
@@ -44,29 +45,3 @@ class Multiples:
         if limit <=0:
             return False
         return isinstance(limit, int)
-    
-    def _validate_limit(self, limit):
-        if not self._is_valid_integer(limit):
-            raise LimitException()
-        
-    def _validate_return(self, result):
-        if not self._is_valid_integer(result):
-            raise ReturnException()
-
-class FactorsException(Exception):
-         """Base custom exception class"""  
-         def __init__(self, message="Factors must be a natural number"):
-            self.message = message
-            super().__init__(self.message)
-
-class LimitException(Exception):
-         """Base custom exception class"""
-         def __init__(self, message="Limit must be a natural number"):
-            self.message = message
-            super().__init__(self.message)
-
-class ReturnException(Exception):
-         """Base custom exception class"""  
-         def __init__(self, message="Return value must be a natural number"):
-            self.message = message
-            super().__init__(self.message)
