@@ -61,7 +61,7 @@ class FactorsException(Exception):
 
 class LimitException(Exception):
          """Base custom exception class"""
-         def __init__(self, message="Limit must be a natural"):
+         def __init__(self, message="Limit must be a natural number"):
             self.message = message
             super().__init__(self.message)
 
