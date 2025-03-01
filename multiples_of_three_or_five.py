@@ -1,5 +1,5 @@
 
-from Validator.implementation import Validator
+from validator import Validator
 
 
 class Multiples:
