@@ -1,3 +1,4 @@
+from queue import Queue
 from validator import Validator
 
 
@@ -22,7 +23,26 @@ class Fibonacci:
         """
 
         self.validator.precondition(self._is_valid_integer(limit), "Limit must be a natural number")
-        return -1
+        if limit == 1:
+            return 0
+        
+        even_sum = 2
+        if limit == 2:
+            return even_sum
+        
+        q = Queue(2)
+        q.put(1)
+        q.put(2)
+
+        while limit > 2:
+            current = q.get()
+            current += q.queue[0]
+            if current % 2 == 0:
+                even_sum += current
+            q.put(current)
+            limit -= 1
+   
+        return even_sum
     
     def _is_valid_integer(self, limit):
         if limit <=0:

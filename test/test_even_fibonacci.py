@@ -7,9 +7,11 @@ class TestEvenFibonacci(unittest.TestCase):
         with self.assertRaises(Exception):
             fibonacci.get_even_sum(-1)
 
-    def test_does_not_throw_if_correct_input(self):
-        fibonacci = Fibonacci()
-        fibonacci.get_even_sum(1)
+    def test_base_case_1(self):
+        self.assertEqual(Fibonacci().get_even_sum(1), 0)
+
+    def test_base_case_2(self):
+        self.assertEqual(Fibonacci().get_even_sum(10), 44)
 
 if __name__ == '__main__':
     unittest.main()
