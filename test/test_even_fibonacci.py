@@ -11,7 +11,10 @@ class TestEvenFibonacci(unittest.TestCase):
         self.assertEqual(Fibonacci().get_even_sum(1), 0)
 
     def test_base_case_2(self):
-        self.assertEqual(Fibonacci().get_even_sum(10), 44)
+        self.assertEqual(Fibonacci().get_even_sum(89), 44)
+    
+    #def test_answer_case(self):
+        #self.assertEqual(Fibonacci().get_even_sum(4000000), -1)
 
 if __name__ == '__main__':
     unittest.main()
