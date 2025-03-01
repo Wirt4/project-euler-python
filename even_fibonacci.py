@@ -1,7 +1,5 @@
 from validator import Validator
 
-import numpy as np 
-
 class Fibonacci:
     def __init__(self):
         self.validator = Validator()

@@ -13,8 +13,8 @@ class TestEvenFibonacci(unittest.TestCase):
     def test_base_case_2(self):
         self.assertEqual(Fibonacci().get_even_sum(89), 44)
     
-    #def test_answer_case(self):
-        #self.assertEqual(Fibonacci().get_even_sum(4000000), -1)
+    def test_answer_case(self):
+        self.assertEqual(Fibonacci().get_even_sum(4000000), 4613732)
 
 if __name__ == '__main__':
     unittest.main()
