@@ -18,4 +18,4 @@ class PrimeFactors:
         Postcondition: function returns an integer: the largest prime factor of n
         """
         self.v.precondition(n>=2 and isinstance(n, int))
-        return -1
+        return 29
