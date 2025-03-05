@@ -9,6 +9,11 @@ class TestLargestPrimeFactor(unittest.TestCase):
         with self.assertRaises(Exception):
             primes.largest_prime_factor(1.5)
 
+    def test_small_example(self):
+        primes = PrimeFactors()
+        self.assertEqual(primes.largest_prime_factor(13195), 29)
+
+
 
 if __name__ == '__main__':
     unittest.main()
