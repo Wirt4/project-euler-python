@@ -13,6 +13,10 @@ class TestLargestPrimeFactor(unittest.TestCase):
         primes = PrimeFactors()
         self.assertEqual(primes.largest_prime_factor(13195), 29)
 
+    def test_paper_draft_example(self):
+        primes = PrimeFactors()
+        self.assertEqual(primes.largest_prime_factor(27), 3)
+
 
 
 if __name__ == '__main__':
